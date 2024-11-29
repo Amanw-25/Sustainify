@@ -1,0 +1,2 @@
+http://localhost:5130/api/v1/sustainify/auth/signup
+http://localhost:5130/api/v1/sustainify/auth/login

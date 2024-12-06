@@ -42,15 +42,35 @@ const carbonFootprintSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    OrganicWaste: {
+      type: Number,
+      required: true,
+    },
+    PaperWaste: {
+      type: Number,
+      required: true,
+    },
+    PlasticWaste: {
+      type: Number,
+      required: true,
+    },
+    WaterUsage: {
+      type: Number,
+      required: true,
+    },
+    PublicTransportUsage: {
+      Bus: { type: Number, required: true },
+      Train: { type: Number, required: true },
+      Metro: { type: Number, required: true },
+    },
     Total: {
-      type: Number
+      type: Number,
     },
   },
   { timestamps: true }
 );
 
 const CarbonFootprint = mongoose.model("CarbonFootprint", carbonFootprintSchema);
-
 
 const factors = {
   Petrol: 2.296,
@@ -61,9 +81,17 @@ const factors = {
   Flight: 2.5,
   LPG: 3.014,
   FuelOil: 2.987,
-  Coal: 2.478
+  Coal: 2.478,
+  OrganicWaste: 0.25,
+  PaperWaste: 1.46,
+  PlasticWaste: 6.0,
+  WaterUsage: 0.0003,
+  PublicTransportUsage: {
+    Bus: 0.102,
+    Train: 0.041,
+    Metro: 0.048,
+  },
 };
-
 
 CarbonFootprint.calculate = async (data) => {
   const CarbonData = {
@@ -76,11 +104,24 @@ CarbonFootprint.calculate = async (data) => {
     LPG: data.LPG * factors.LPG,
     FuelOil: data.FuelOil * factors.FuelOil,
     Coal: data.Coal * factors.Coal,
+    OrganicWaste: data.OrganicWaste * factors.OrganicWaste,
+    PaperWaste: data.PaperWaste * factors.PaperWaste,
+    PlasticWaste: data.PlasticWaste * factors.PlasticWaste,
+    WaterUsage: data.WaterUsage * factors.WaterUsage,
+    PublicTransportUsage: {
+      Bus: data.PublicTransportUsage.Bus * factors.PublicTransportUsage.Bus,
+      Train: data.PublicTransportUsage.Train * factors.PublicTransportUsage.Train,
+      Metro: data.PublicTransportUsage.Metro * factors.PublicTransportUsage.Metro,
+    },
   };
 
-  CarbonData.Total = Object.values(CarbonData).reduce((acc, curr) => acc + curr, 0);
+  CarbonData.PublicTransportUsageTotal = Object.values(CarbonData.PublicTransportUsage).reduce((acc, curr) => acc + curr, 0);
+
+  CarbonData.Total = Object.values(CarbonData)
+    .filter((value) => typeof value === "number") // Ignore nested objects
+    .reduce((acc, curr) => acc + curr, 0);
+
   return CarbonData;
 };
-
 
 export default CarbonFootprint;

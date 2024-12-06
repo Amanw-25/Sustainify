@@ -154,7 +154,8 @@ This API integrates with **Mistral AI** to provide personalized analysis and rec
 - **EndPoint**: `POST http://localhost:5130/api/v1/sustainify/mistral/chat`
 - **Description**: Get a detail Tip based on the user's consumption data (e.g., petrol, electricity, flights, etc.). Based on the data store in user Schema.
 - **Request Body**:
-  ``` Keep it EMPTY
+  ``` 
+  Keep it EMPTY
   ```
 
 - **Success Response**:

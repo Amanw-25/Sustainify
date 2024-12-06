@@ -63,7 +63,6 @@ const calculateCarbonFootprint = async (req, res) => {
     return res.status(200).json({
       message: "Carbon footprint calculated and saved successfully",
       carbonFootprint: savedCarbonFootprint,
-      user: updatedUser,
     });
   } catch (error) {
     console.error(error);

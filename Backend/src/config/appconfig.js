@@ -13,8 +13,8 @@ const appconfig = {
   DATA_API_KEY: process.env.DATA_API_KEY,
   EMAILJS_USER_ID: process.env.EMAILJS_USER_ID,
   EMAILJS_USER_SECRET: process.env.EMAILJS_USER_SECRET,
-  OPENCAGE_API_KEY:process.env.OPENCAGE_API_KEY,
-  OLAMAPS_API_KEY: process.env.OLAMAPS_API_KEY
+  MISTRAL_API_KEY:process.env.MISTRAL_API_KEY
+
 };
 
 export { appconfig };

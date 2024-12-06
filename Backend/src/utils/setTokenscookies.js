@@ -6,13 +6,13 @@ const setTokenscookies = (res, accessToken, refreshToken) => {
     httpOnly: true,
     secure: true,
     maxAge: ms(appconfig.ACCESS_TOKEN_EXP),
-    domain: ".nxtdev.in", 
+    // domain: ".nxtdev.in", 
   });
   res.cookie("refreshToken", refreshToken, {
     httpOnly: true,
     secure: true,
     maxAge: ms(appconfig.REFRESH_TOKEN_EXP),
-    domain: ".nxtdev.in", 
+    // domain: ".nxtdev.in", 
   });
   
 };

@@ -5,6 +5,9 @@ import "./config/passportjwtconfig.js";
 import { passport } from "./config/passportjwtconfig.js";
 import { appconfig } from "./config/appconfig.js";
 import { Authroutes } from "./routes/userRoute.js";
+import carbonRoutes from "./routes/carbonFootprintRoute.js"
+import analysisRoute from './routes/analysisRoute.js';
+
 
 export const app = express();
 
@@ -20,3 +23,5 @@ app.use(
 );
 
 app.use("/api/v1/sustainify/auth", Authroutes);
+app.use("/api/v1/sustainify/carbon",carbonRoutes);
+app.use('/api/v1/sustainify/mistral',analysisRoute);

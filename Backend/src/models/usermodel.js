@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: null,
     },
+    carbonFootprint:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref:'CarbonFootprint'
+    },
   },
   {
     timestamps: true,

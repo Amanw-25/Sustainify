@@ -53,7 +53,7 @@ const chatWithMistralAI = async (req, res) => {
     Thank you for taking the first step towards a more sustainable future! Every change, no matter how small, has the potential to make a significant positive impact on our planet.
 `;
 
-    console.log("Question for Mistral AI:", messageContent);
+    // console.log("Question for Mistral AI:", messageContent);
 
     const pythonProcess = spawn("python3", [
       "app.py",

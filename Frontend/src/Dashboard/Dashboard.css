@@ -1,0 +1,86 @@
+.Nav {
+  width: 100vw;
+  height: 8vh;
+  background-color: black;
+}
+.calculator-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 2vh;
+}
+.main-content {
+  padding: 20px;
+  text-align: center;
+}
+.description {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.tab {
+  padding: 10px 20px;
+  background-color: #004d40;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.tab.active {
+  background-color: #00796b;
+}
+.calculator-box {
+  background-color: #004d40;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+}
+.calculator-box h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-group label {
+  flex: 1;
+}
+.form-group input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: black;
+}
+.submit-button {
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.submit-button:hover {
+  background-color: white;
+  color: black;
+}

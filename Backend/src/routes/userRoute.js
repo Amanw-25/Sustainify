@@ -9,6 +9,7 @@ import {
   userpasswordChangeController,
   uploadProfilePhotoController,
 } from "../controllers/index.js";
+import {checkAuth}from "../controllers/checkAuth.js"; // Import the checkAuth controller
 
 const Authroutes = Router();
 
@@ -25,11 +26,15 @@ Authroutes.route("/user-profile").post(
   getnewToken,
   passport.authenticate("jwt", { session: false }),
 );
+
 Authroutes.route("/upload-profile-photo").post(
   getnewToken,
   passport.authenticate("jwt", { session: false }),
   upload.single("file"),
   uploadProfilePhotoController
 );
+
+// Route to check if the user is logged in
+Authroutes.route("/checkAuth").get(checkAuth); // Add the new route here
 
 export { Authroutes };

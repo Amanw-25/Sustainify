@@ -4,13 +4,13 @@ import { appconfig } from "../config/appconfig.js";
 const setTokenscookies = (res, accessToken, refreshToken) => {
   res.cookie("accessToken", accessToken, {
     httpOnly: true,
-    secure: true,
+    secure: false,
     maxAge: ms(appconfig.ACCESS_TOKEN_EXP),
     // domain: ".nxtdev.in", 
   });
   res.cookie("refreshToken", refreshToken, {
     httpOnly: true,
-    secure: true,
+    secure: false,
     maxAge: ms(appconfig.REFRESH_TOKEN_EXP),
     // domain: ".nxtdev.in", 
   });
